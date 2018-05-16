@@ -1,8 +1,4 @@
 
-<img src = "http://www.tecsaing.com/images/html/logo-footer.png" style="background-color:powderblue">
-
-
-
 # Optimization Project
 
 
