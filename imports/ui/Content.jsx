@@ -6,6 +6,15 @@ class Content extends Component {
         this.state = {};
     }
 
+    componentDidMount() {
+        var divElement = document.getElementById('viz1526504869880');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    }
+
     render() {
         return (
 
@@ -16,7 +25,7 @@ class Content extends Component {
                         <div className="card ">
                             <div className="card-header ">
                                 <h4 className="card-title">Herramientas</h4>
-                                <p className="card-category">Jojo</p>
+                                <p className="card-category">La siguiente gráfica muestra la cantidad de herramientas que se deben comprar de cada tipo para lograr la menor demora en proyectos.</p>
                             </div>
                             <div className="card-body ">
                                 <div className='tableauPlaceholder' id='viz1526504869880'>
@@ -39,12 +48,6 @@ class Content extends Component {
                                 </div>
                             </div>
                             <div className="card-footer ">
-                                <div className="legend">
-                                    <i className="fa fa-circle text-info"></i> Open
-                                    <i className="fa fa-circle text-danger"></i> Click
-                                    <i className="fa fa-circle text-warning"></i> Click Second Time
-                                </div>
-                                <hr/>
                                 <div className="stats">
                                     <i className="fa fa-history"></i> Updated 3 minutes ago
                                 </div>

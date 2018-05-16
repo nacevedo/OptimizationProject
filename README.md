@@ -34,7 +34,7 @@ If anyone wants to give me any help or ideas, you can by making new [Issues](htt
 ## Authors 
 **Bibiana Gamba** 👩🏽‍🎨
 **Nicolás Acevedo** 👨🏼‍🔬
-**Carlos Peñaloza** 👨🏻‍🚒
+**Carlos Peñaloza** 👨🏻‍🚀
 **Daniel López** 👨🏻‍🌾 
 
 

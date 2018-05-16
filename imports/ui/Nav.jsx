@@ -1,16 +1,11 @@
 import React, {Component} from "react";
-import {render} from 'react-dom';
 import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
-import {Meteor} from 'meteor/meteor';
 
 import Content from "./Content";
 import Input from "./Input";
+import Footer from "./Footer";
 
 class Nav extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
 
     render() {
         return (
@@ -20,9 +15,7 @@ class Nav extends Component {
                     <div className="sidebar" data-image="../assets/img/sidebar-5.jpg">
                         <div className="sidebar-wrapper">
                             <div className="logo">
-                                <a href="#" className="simple-text">
                                     <img src="images/logo.png" alt="Tecsai Logo"/>
-                                </a>
                             </div>
                             <ul className="nav">
                                 <li>
@@ -43,7 +36,7 @@ class Nav extends Component {
                     <div className="main-panel">
                         <nav className="navbar navbar-expand-lg " color-on-scroll="500">
                             <div className=" container-fluid  ">
-                                <a className="navbar-brand" href="http://www.tecsaing.com/"> <strong>Tecsai</strong> 🦄 </a>
+                                <a className="navbar-brand" href="http://www.tecsaing.com/" target="_blank"> <strong>Tecsai</strong> 🦄 </a>
                                 <button href="" className="navbar-toggler navbar-toggler-right" type="button"
                                         data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false"
                                         aria-label="Toggle navigation">
@@ -53,11 +46,6 @@ class Nav extends Component {
                                 </button>
                                 <div className="collapse navbar-collapse justify-content-end" id="navigation">
                                     <ul className="navbar-nav ml-auto">
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#pablo">
-                                                <span className="no-icon">Account</span>
-                                            </a>
-                                        </li>
                                         <li className="nav-item dropdown">
                                             <a className="nav-link dropdown-toggle" href="http://example.com"
                                                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -74,23 +62,21 @@ class Nav extends Component {
                                             </div>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="#pablo">
-                                                <span className="no-icon">Log out</span>
+                                            <a className="nav-link" href="#">
+                                                <span className="no-icon">About</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </nav>
-
-
                         <Switch>
                             <div className="content">
                                 <Route exact path="/" component={Content}/>
                                 <Route exact path="/input" component={Input}/>
                             </div>
                         </Switch>
-
+                        <Footer/>
                     </div>
 
                 </div>
