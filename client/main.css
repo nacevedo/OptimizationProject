@@ -295,7 +295,10 @@ input:focus {
     width: 100%;
     z-index: 1;
 }
-
+.tableauViz{
+    min-width: 100% !important;
+    min-height: 65vh;
+}
 .page-header .title-container {
     color: #fff;
     position: relative;
