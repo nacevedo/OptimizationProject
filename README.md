@@ -1,4 +1,4 @@
-<div background-color = "blue">
+<div background-color = "Blue">
 <img src="http://www.tecsaing.com/images/html/logo-footer.png" title="Sakana" alt="Mandao Dao Logo" href="" height = 100px width = 100px >
 </div>
 
