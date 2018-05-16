@@ -1,5 +1,5 @@
 
-<img src = "http://www.tecsaing.com/images/html/logo-footer.png"/>
+<img src = "http://www.tecsaing.com/images/html/logo.png"/>
 
 # Optimization Project
 
