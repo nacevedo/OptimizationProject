@@ -9,7 +9,7 @@ class Content extends Component {
     render() {
         return (
 
-            <div className="content">
+
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-4">
@@ -255,7 +255,6 @@ class Content extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }
