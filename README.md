@@ -1,6 +1,6 @@
-<div background-color = "Blue">
-<img src="http://www.tecsaing.com/images/html/logo-footer.png" title="Sakana" alt="Mandao Dao Logo" href="" height = 100px width = 100px >
-</div>
+
+<img src="http://www.tecsaing.com/images/html/logo-footer.png" title="Sakana" alt="Mandao Dao Logo" href="" height = 100px width = 100px style="background-color:powderblue;">
+
 
 
 # Optimization Project
@@ -41,6 +41,10 @@ If anyone wants to give me any help or ideas, you can by making new [Issues](htt
 ## Authors 
 **Bibiana Gamba** 👩🏽‍🎨
 **Nicolás Acevedo** 👨🏼‍🔬
+**Carlos Peñaloza** 👨🏻‍🚒
+**Daniel López** 👨🏻‍🌾 
+
+
 # Beta
 Beta versión! Please write use to include your city in sugestions 😉...
 
