@@ -1,5 +1,5 @@
 
-<img src="http://www.tecsaing.com/images/html/logo-footer.png" title="Sakana" alt="Mandao Dao Logo" href="" height = 100px width = 100px style="background-color:red">
+<img src = "http://www.tecsaing.com/images/html/logo-footer.png" style="background-color:powderblue">
 
 
 
