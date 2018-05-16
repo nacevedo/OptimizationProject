@@ -1,5 +1,6 @@
-
-<img src="http://www.tecsaing.com/images/html/logo-footer.png" title="Sakana" alt="Mandao Dao Logo" href="" height = 100px width = 100px background-color = "blue">
+<div background-color = "blue">
+<img src="http://www.tecsaing.com/images/html/logo-footer.png" title="Sakana" alt="Mandao Dao Logo" href="" height = 100px width = 100px >
+</div>
 
 
 # Optimization Project
