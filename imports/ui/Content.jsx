@@ -15,11 +15,38 @@ class Content extends Component {
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
     }
 
+     handleChange(e)
+    {
+        var graficas = this.refs.input.value.split("#"); 
+        for (i = 0; i < graficas.length ; i++)
+        {
+        var separados = graficas[i].split(","); 
+        console.log(separados);
+        if (i == 0){
+            this.setState({
+                grafica1:separados
+            }); 
+         }
+         else if (i == 1){
+            this.setState({
+                grafica2:separados
+            }); 
+         }
+         else {
+            this.setState({
+                grafica3:separados
+            }); 
+         }
+        }
+    }
+
+
     render() {
         return (
 
 
             <div className="container-fluid">
+                <input type="text" id="userInput" ref = "input" onChange={ this.handleChange.bind(this) } />
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card ">

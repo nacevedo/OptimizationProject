@@ -11,7 +11,9 @@ class App extends Component {
 
     render() {
         return (
+        		<div>
                 <Nav/>
+                </div>
         );
     }
 }
