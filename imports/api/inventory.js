@@ -14,8 +14,11 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    "inventory.insert"(ref) {
-      Inventory.insert({ref:ref, amount:0});
+    "inventory.insert"(ref, cost) {
+      Inventory.insert({ref:ref, cost: cost, amount:0});
+    },
+    "inventory.delete"(ref) {
+        Inventory.remove({ref:ref});
     },
     "amount.update"(ref, amount) {
         const res = Inventory.find({ref:ref}).fetch();

@@ -18,9 +18,44 @@ class Inventory extends Component {
         });
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+
+        const name = this.refs.name.value;
+        const price = this.refs.price.value;
+        const amount = this.refs.amount.value;
+
+        Meteor.call("inventory.insert", name, price, amount);
+    }
+
     render() {
         return (
             <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="form-group">
+                            <label>Referencia</label>
+                            <input className="form-control" ref="name" required="" placeholder="Nombre" type="text"/>
+                        </div>
+                    </div>
+                    <div className="col-md-2">
+                        <div className="form-group">
+                            <label>Precio (COP$)</label>
+                            <input className="form-control" ref="price" required="" placeholder="$" type="number"/>
+                        </div>
+                    </div>
+                    <div className="col-md-2">
+                        <div className="form-group">
+                            <label for="exampleInputEmail1">Cantidad</label>
+                            <input className="form-control" ref="amount" required="" placeholder="0" type="number"/>
+                        </div>
+                    </div>
+                    <div className="col-md-2">
+                        <button onClick={this.handleSubmit.bind(this)} type="submit" className="btn btn-info btn-fill pull-right button-inventory">Agregar
+                        </button>
+                    </div>
+                </div>
+                
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card strpied-tabled-with-hover">
@@ -34,7 +69,9 @@ class Inventory extends Component {
                                     <tr>
                                         <th>Referencia</th>
                                         <th>Cantidad</th>
-                                        <th>Agregar</th>
+                                        <th>Precio</th>
+                                        <th>Aumentar</th>
+                                        <th>Reducir</th>
                                         <th>Eliminar</th>
                                     </tr>
                                     </thead>
@@ -62,11 +99,16 @@ class Item extends Component {
         Meteor.call("amount.update", this.props.item.ref, -1);
     }
 
+    delete() {
+        Meteor.call("inventory.delete", this.props.item.ref);
+    }
+
     render() {
         return (
             <tr>
                 <td>{this.props.item.ref}</td>
                 <td>{this.props.item.amount}</td>
+                <td>{this.props.item.cost}</td>
                 <td>
                     <a className="inventory-icon" onClick={this.increaseAmount.bind(this)}>
                         <i className="fa fa-plus inventory-icon"/>
@@ -75,6 +117,11 @@ class Item extends Component {
                 <td>
                     <a className="inventory-icon" onClick={this.decreaseAmount.bind(this)}>
                         <i className="fa fa-minus inventory-icon"/>
+                    </a>
+                </td>
+                <td>
+                    <a className="inventory-icon" onClick={this.delete.bind(this)}>
+                        <i className="fa fa-trash inventory-icon"/>
                     </a>
                 </td>
             </tr>

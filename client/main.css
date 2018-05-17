@@ -142,7 +142,10 @@ h3 .small {
     margin: auto;
     cursor: pointer;
 }
-
+.button-inventory {
+    margin-top: 32px;
+    min-width: 100%;
+}
 h1 .subtitle {
     display: block;
     margin: 0 0 30px;
