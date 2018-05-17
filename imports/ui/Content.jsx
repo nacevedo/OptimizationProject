@@ -7,12 +7,14 @@ class Content extends Component {
     }
 
     componentDidMount() {
+
         var divElement = document.getElementById('viz1526504869880');
         var vizElement = divElement.getElementsByTagName('object')[0];
         vizElement.style.width = '100%';
         var scriptElement = document.createElement('script');
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
     }
 
      handleChange(e)

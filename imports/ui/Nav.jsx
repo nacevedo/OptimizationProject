@@ -17,7 +17,7 @@ class Nav extends Component {
                     <div className="sidebar" data-image="../assets/img/sidebar-5.jpg">
                         <div className="sidebar-wrapper">
                             <div className="logo">
-                                    <img src="images/logo.png" alt="Tecsai Logo"/>
+                                <img src="images/logo.png" alt="Tecsai Logo"/>
                             </div>
                             <ul className="nav">
                                 <li>
@@ -50,7 +50,8 @@ class Nav extends Component {
                     <div className="main-panel">
                         <nav className="navbar navbar-expand-lg " color-on-scroll="500">
                             <div className=" container-fluid  ">
-                                <a className="navbar-brand" href="http://www.tecsaing.com/" target="_blank"> <strong>Tecsai</strong> 🦄 </a>
+                                <a className="navbar-brand" href="http://www.tecsaing.com/" target="_blank">
+                                    <strong>Tecsai</strong> 🦄 </a>
                                 <button href="" className="navbar-toggler navbar-toggler-right" type="button"
                                         data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false"
                                         aria-label="Toggle navigation">
@@ -84,14 +85,17 @@ class Nav extends Component {
                                 </div>
                             </div>
                         </nav>
-                        <Switch>
-                            <div className="content">
+                        <div className="content">
+                            <Switch>
                                 <Route exact path="/" component={Content}/>
                                 <Route exact path="/input" component={Input}/>
-                                <Route exact path="/inventory" render={(props) => <Inventory {...props} inventory={this.props.inventory} />}/>
-                                <Route exact path="/parameters" render={(props) => <Parameters {...props} parameters={this.props.parameters} inventory={this.props.inventory} />}/>
-                            </div>
-                        </Switch>
+                                <Route exact path="/inventory"
+                                       render={(props) => <Inventory {...props} inventory={this.props.inventory}/>}/>
+                                <Route exact path="/parameters"
+                                       render={(props) => <Parameters {...props} parameters={this.props.parameters}
+                                                                      inventory={this.props.inventory}/>}/>
+                            </Switch>
+                        </div>
                         <Footer/>
                     </div>
 

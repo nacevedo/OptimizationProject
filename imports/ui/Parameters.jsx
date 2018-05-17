@@ -7,19 +7,36 @@ class Parameters extends Component {
     }
 
     renderParameters() {
-        console.log(this.props.parameters);
+        let params = "";
+        this.props.parameters.forEach((param)=>{
+            const p = param.value;
+            params = params + p + "\n\n";
+        });
+        params = params + this.processInventory();
         return (
-            <textarea className="parameters"  id="parameters" ref="params">
-                dfsdsaf
+            <textarea className="parameters" readOnly id="parameters" ref="params" value={params}>
                         </textarea>
         )
     }
 
+    processInventory() {
+        let inventory = "I0: [ ";
+        let costs = "v:[ ";
+        this.props.inventory.forEach((item)=>{
+            inventory = inventory + " (" + item.ref + ")" + item.amount;
+            costs = costs + " (" + item.ref + ")" + item.cost;
+        });
+        inventory += " ]";
+        costs += " ]";
+        console.log(inventory);
+        console.log(costs);
+        let params = inventory  + "\n\n" + costs;
+        return params;
+    }
+
     copy() {
-        console.log(this.refs);
         /* Get the text field */
         var copyText = document.getElementById("parameters");
-        let params = this.refs.params;
 
         /* Select the text field */
         copyText.select();
@@ -27,7 +44,7 @@ class Parameters extends Component {
         /* Copy the text inside the text field */
         document.execCommand("copy");
 
-        /* Alert the copied text */
+        /* Alert */
         alert("Los parámetros fueron copiados al portapapeles");
     }
 
