@@ -13,7 +13,8 @@ class Input extends Component {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header">
-                                <h4 className="card-title">Edit Profile</h4>
+                                <h4 className="card-title">Proyectos</h4>
+                                <p className="card-category">Información de los proyectos del siguiente mes</p>
                             </div>
                             <div className="card-body">
                                 <form>
@@ -86,7 +87,7 @@ class Input extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-info btn-fill pull-right">Update Profile
+                                    <button type="submit" className="btn btn-info btn-fill pull-right">Agregar Proyecto
                                     </button>
                                     <div className="clearfix"></div>
                                 </form>

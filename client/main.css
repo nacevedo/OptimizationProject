@@ -149,6 +149,7 @@ h3 .small {
 }
 textarea {
     resize: none !important;
+    border: lightgray solid 1px !important;
 }
 .btn-copy {
     margin-top: 3%;
@@ -834,6 +835,7 @@ fieldset[disabled] .btn.active {
 
 .btn.btn-fill {
     color: #FFFFFF;
+    font-weight: 500;
     background-color: #888888;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -2593,9 +2595,9 @@ Copyright (c) 2015 Daniel Eden
 
 .card .card-category,
 .card label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
-    color: #9A9A9A;
+    color: #5f5f5f;
     margin-bottom: 0px;
 }
 

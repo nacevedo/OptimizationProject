@@ -28,8 +28,6 @@ class Parameters extends Component {
         });
         inventory += " ]";
         costs += " ]";
-        console.log(inventory);
-        console.log(costs);
         let params = inventory  + "\n\n" + costs;
         return params;
     }
@@ -55,11 +53,12 @@ class Parameters extends Component {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="card-header">
-                                <h4 className="card-title">Parameters</h4>
+                                <h4 className="card-title">Parámetros</h4>
+                                <p className="card-category">Utilice estos parámetros para correr el modelo en Xpress</p>
                             </div>
                         </div>
                         <div className="col-md-6">
-                            <button className="btn btn-primary btn-copy pull-right" onClick={this.copy.bind(this)}>Copy text</button>
+                            <button className="btn btn-info btn-fill pull-right btn-copy" onClick={this.copy.bind(this)}>Copiar texto <i className="fa fa-clipboard"></i></button>
                         </div>
                     </div>
 

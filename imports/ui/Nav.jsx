@@ -1,11 +1,13 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Switch, Route, NavLink, withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
 
 import Content from "./Content";
-import Input from "./Input";
+import Projects from "./Projects";
 import Footer from "./Footer";
 import Inventory from "./Inventory";
+import Budget from "./Budget";
 import Parameters from "./Parameters";
+import Results from "./Results";
 
 class Nav extends Component {
 
@@ -14,7 +16,7 @@ class Nav extends Component {
             <Router>
                 <div className="wrapper">
 
-                    <div className="sidebar" data-image="../assets/img/sidebar-5.jpg">
+                    <div className="sidebar">
                         <div className="sidebar-wrapper">
                             <div className="logo">
                                 <img src="images/logo.png" alt="Tecsai Logo"/>
@@ -22,26 +24,38 @@ class Nav extends Component {
                             <ul className="nav">
                                 <li>
                                     <NavLink activeClassName="active-link" exact className="nav-link" to="/">
-                                        <i className="fa fa-dashboard"></i>
-                                        <p>Dashboard</p>
+                                        <i className="fa fa-bar-chart"></i>
+                                        <p>Tablero de Control</p>
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink exact activeClassName="active-link" className="nav-link" to="/inventory">
                                         <i className="fa fa-wrench"></i>
-                                        <p>Inventory</p>
+                                        <p>Inventario</p>
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/input">
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/projects">
+                                        <i className="fa fa-calendar"></i>
+                                        <p>Proyectos</p>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/budget">
+                                        <i className="fa fa-usd"></i>
+                                        <p>Presupuesto</p>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/results">
                                         <i className="fa fa-file"></i>
-                                        <p>Input</p>
+                                        <p>Resultados</p>
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink exact activeClassName="active-link" className="nav-link" to="/parameters">
                                         <i className="fa fa-list"></i>
-                                        <p>Parameters</p>
+                                        <p>Parámetros</p>
                                     </NavLink>
                                 </li>
                             </ul>
@@ -51,7 +65,7 @@ class Nav extends Component {
                         <nav className="navbar navbar-expand-lg " color-on-scroll="500">
                             <div className=" container-fluid  ">
                                 <a className="navbar-brand" href="http://www.tecsaing.com/" target="_blank">
-                                    <strong>Tecsai</strong> 🦄 </a>
+                                    <strong>Tecsai</strong></a>
                                 <button href="" className="navbar-toggler navbar-toggler-right" type="button"
                                         data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false"
                                         aria-label="Toggle navigation">
@@ -88,12 +102,14 @@ class Nav extends Component {
                         <div className="content">
                             <Switch>
                                 <Route exact path="/" component={Content}/>
-                                <Route exact path="/input" component={Input}/>
+                                <Route exact path="/projects" component={Projects}/>
                                 <Route exact path="/inventory"
                                        render={(props) => <Inventory {...props} inventory={this.props.inventory}/>}/>
+                                <Route exact path="/budget" component={Budget}/>
                                 <Route exact path="/parameters"
                                        render={(props) => <Parameters {...props} parameters={this.props.parameters}
                                                                       inventory={this.props.inventory}/>}/>
+                                <Route exact path="/results" component={Results}/>
                             </Switch>
                         </div>
                         <Footer/>
