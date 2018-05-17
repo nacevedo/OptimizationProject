@@ -105,7 +105,8 @@ class Nav extends Component {
                                 <Route exact path="/projects" component={Projects}/>
                                 <Route exact path="/inventory"
                                        render={(props) => <Inventory {...props} inventory={this.props.inventory}/>}/>
-                                <Route exact path="/budget" component={Budget}/>
+                                <Route exact path="/budget"
+                                       render={(props) => <Budget {...props} budget={this.props.budget}/>}/>
                                 <Route exact path="/parameters"
                                        render={(props) => <Parameters {...props} parameters={this.props.parameters}
                                                                       inventory={this.props.inventory}/>}/>

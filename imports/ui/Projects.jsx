@@ -35,7 +35,7 @@ class Input extends Component {
                                         </div>
                                         <div className="col-md-4 pl-1">
                                             <div className="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
+                                                <label>Email address</label>
                                                 <input className="form-control" placeholder="Email" type="email"/>
                                             </div>
                                         </div>

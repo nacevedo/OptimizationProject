@@ -10,7 +10,12 @@ class Parameters extends Component {
         let params = "";
         this.props.parameters.forEach((param)=>{
             const p = param.value;
-            params = params + p + "\n\n";
+            if (p.includes(":")){
+                params = params + p + "\n\n";
+            }
+            else{
+                params += `p: ${p}\n\n`;
+            }
         });
         params = params + this.processInventory();
         return (

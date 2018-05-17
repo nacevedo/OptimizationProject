@@ -10,15 +10,18 @@ if (Meteor.isServer) {
     Meteor.publish("Parameters", () => {
         return Parameters.find({});
     });
+    Meteor.publish("Budget", () => {
+        return Parameters.find({"name":"p"});
+    });
 }
 Meteor.methods({
     "budget.update"(value) {
-        const res = Inventory.find({ref:ref}).fetch();
+        const res = Parameters.find({name:"p"}).fetch();
 
         if(res.length>0){
             let obj = res[0];
             Parameters.update(obj._id, {
-                $set: { amount:obj.value+value},});
+                $set: { value:value},});
         }
     }
 });

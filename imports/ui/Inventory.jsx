@@ -42,7 +42,7 @@ class Inventory extends Component {
                     </div>
                     <div className="col-md-2">
                         <div className="form-group">
-                            <label for="exampleInputEmail1">Cantidad</label>
+                            <label>Cantidad</label>
                             <input className="form-control" ref="amount" required="" placeholder="0" type="number"/>
                         </div>
                     </div>

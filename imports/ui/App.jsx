@@ -15,7 +15,7 @@ class App extends Component {
 
     render() {
         return (
-                <Nav inventory={this.props.inventory} parameters={this.props.parameters}/>
+                <Nav inventory={this.props.inventory} parameters={this.props.parameters} budget={this.props.budget}/>
         );
     }
 }
@@ -23,8 +23,10 @@ class App extends Component {
 export default withTracker(() => {
     Meteor.subscribe("Inventory");
     Meteor.subscribe("Parameters");
+    Meteor.subscribe("Budget");
     return {
         inventory:Inventory.find({}).fetch(),
-        parameters:Parameters.find({}).fetch()
+        parameters:Parameters.find({}).fetch(),
+        budget:Parameters.find({"name":"p"}).fetch(),
     };
 })(App);
