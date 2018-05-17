@@ -1,4 +1,7 @@
 import React, {Component} from "react";
+import {withTracker} from 'meteor/react-meteor-data';
+
+import {Inventory} from "../api/inventory.js";
 
 import Nav from "./Nav";
 
@@ -11,11 +14,16 @@ class App extends Component {
 
     render() {
         return (
-        		<div>
-                <Nav/>
-                </div>
+
+                <Nav inventory={this.props.inventory}/>
+
         );
     }
 }
 
-export default App;
+export default withTracker(() => {
+    Meteor.subscribe("Inventory");
+    return {
+        inventory:Inventory.find({}).fetch()
+    };
+})(App);

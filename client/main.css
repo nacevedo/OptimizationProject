@@ -12,46 +12,6 @@
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
- */
-
-/*      light colors         */
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes spin {
-    from {
-        -moz-transform: rotate(0deg);
-    }
-    to {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@-ms-keyframes spin {
-    from {
-        -ms-transform: rotate(0deg);
-    }
-    to {
-        -ms-transform: rotate(360deg);
-    }
-}
-
 /*           Font Smoothing      */
 
 body,
@@ -92,6 +52,11 @@ h4,
 .h4 {
     font-weight: 300;
     margin: 30px 0 15px;
+}
+
+.active-link {
+    background: rgba(255, 255, 255, 0.13);
+    opacity: 1;
 }
 
 h1,
@@ -172,6 +137,15 @@ h3 .small {
     font-size: 60%;
 }
 
+
+.inventory-icon {
+    margin: auto;
+    cursor: pointer;
+}
+.button-inventory {
+    margin-top: 32px;
+    min-width: 100%;
+}
 h1 .subtitle {
     display: block;
     margin: 0 0 30px;
@@ -179,39 +153,6 @@ h1 .subtitle {
 
 .text-muted {
     color: #9A9A9A;
-}
-
-.text-primary,
-.text-primary:hover {
-    color: #1D62F0 !important;
-}
-
-.text-info,
-.text-info:hover {
-    color: #1DC7EA !important;
-}
-
-.text-success,
-.text-success:hover {
-    color: #87CB16 !important;
-}
-
-.text-warning,
-.text-warning:hover {
-    color: #FF9500 !important;
-}
-
-.text-danger,
-.text-danger:hover {
-    color: #FF4A55 !important;
-}
-
-/*     General overwrite     */
-
-body,
-.wrapper {
-    min-height: 100vh;
-    position: relative;
 }
 
 a {
@@ -304,19 +245,6 @@ input:focus {
     position: relative;
     top: 250px;
     z-index: 3;
-}
-
-.page-header .filter:after {
-    background: transparent linear-gradient(to bottom, #9368e9 0%, #943bea 100%) repeat scroll 0 0/150% 150%;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    opacity: 0.77;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 2;
 }
 
 .documentation .page-header,

@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Switch, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, NavLink, withRouter} from 'react-router-dom';
 
 import Content from "./Content";
 import Input from "./Input";
 import Footer from "./Footer";
+import Inventory from "./Inventory";
 
 class Nav extends Component {
 
@@ -19,15 +20,21 @@ class Nav extends Component {
                             </div>
                             <ul className="nav">
                                 <li>
-                                    <NavLink exact className="nav-link" to="/">
+                                    <NavLink activeClassName="active-link" exact className="nav-link" to="/">
                                         <i className="fa fa-dashboard"></i>
                                         <p>Dashboard</p>
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink exact className="nav-link" to="/input">
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/input">
                                         <i className="fa fa-file"></i>
                                         <p>Input</p>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/inventory">
+                                        <i className="fa fa-wrench"></i>
+                                        <p>Inventory</p>
                                     </NavLink>
                                 </li>
                             </ul>
@@ -74,6 +81,7 @@ class Nav extends Component {
                             <div className="content">
                                 <Route exact path="/" component={Content}/>
                                 <Route exact path="/input" component={Input}/>
+                                <Route exact path="/inventory" render={(props) => <Inventory {...props} inventory={this.props.inventory} />}/>
                             </div>
                         </Switch>
                         <Footer/>
