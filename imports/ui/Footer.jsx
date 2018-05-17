@@ -12,14 +12,10 @@ class Footer extends Component {
                 <div className="container">
                     <nav>
                         <ul className="footer-menu">
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
+
                         </ul>
                         <p className="copyright text-center">
-                            © Bibiana Gamba 👩🏽‍🎨 Nicolás Acevedo 👨🏼‍🔬 Carlos Peñaloza 👨🏻‍🚀 Daniel López 👨🏻‍🌾
+                            ©2018 Bibiana Gamba 👩🏽‍🎨 Nicolás Acevedo 👨🏼‍🔬 Carlos Peñaloza 👨🏻‍🚀 Daniel López 👨🏻‍🌾
                         </p>
                     </nav>
                 </div>

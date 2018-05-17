@@ -1,7 +1,5 @@
 import {Mongo} from "meteor/mongo";
 import {Meteor} from "meteor/meteor";
-import {check} from "meteor/check";
-import {SimpleSchema} from "simpl-schema/dist/SimpleSchema";
 
 
 export const Inventory = new Mongo.Collection("Inventory");

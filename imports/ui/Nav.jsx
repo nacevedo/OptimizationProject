@@ -5,6 +5,7 @@ import Content from "./Content";
 import Input from "./Input";
 import Footer from "./Footer";
 import Inventory from "./Inventory";
+import Parameters from "./Parameters";
 
 class Nav extends Component {
 
@@ -26,15 +27,21 @@ class Nav extends Component {
                                     </NavLink>
                                 </li>
                                 <li>
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/inventory">
+                                        <i className="fa fa-wrench"></i>
+                                        <p>Inventory</p>
+                                    </NavLink>
+                                </li>
+                                <li>
                                     <NavLink exact activeClassName="active-link" className="nav-link" to="/input">
                                         <i className="fa fa-file"></i>
                                         <p>Input</p>
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/inventory">
-                                        <i className="fa fa-wrench"></i>
-                                        <p>Inventory</p>
+                                    <NavLink exact activeClassName="active-link" className="nav-link" to="/parameters">
+                                        <i className="fa fa-list"></i>
+                                        <p>Parameters</p>
                                     </NavLink>
                                 </li>
                             </ul>
@@ -82,6 +89,7 @@ class Nav extends Component {
                                 <Route exact path="/" component={Content}/>
                                 <Route exact path="/input" component={Input}/>
                                 <Route exact path="/inventory" render={(props) => <Inventory {...props} inventory={this.props.inventory} />}/>
+                                <Route exact path="/parameters" render={(props) => <Parameters {...props} parameters={this.props.parameters} inventory={this.props.inventory} />}/>
                             </div>
                         </Switch>
                         <Footer/>

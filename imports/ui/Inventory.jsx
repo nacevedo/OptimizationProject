@@ -6,10 +6,6 @@ class Inventory extends Component {
         super(props);
     }
 
-    componentDidMount() {
-        console.log(this.props);
-    }
-
     renderInventory() {
         return this.props.inventory.map((item) => {
             return (
@@ -22,10 +18,10 @@ class Inventory extends Component {
         event.preventDefault();
 
         const name = this.refs.name.value;
-        const price = this.refs.price.value;
+        const cost = this.refs.cost.value;
         const amount = this.refs.amount.value;
 
-        Meteor.call("inventory.insert", name, price, amount);
+        Meteor.call("inventory.insert", name, cost, amount);
     }
 
     render() {
@@ -40,8 +36,8 @@ class Inventory extends Component {
                     </div>
                     <div className="col-md-2">
                         <div className="form-group">
-                            <label>Precio (COP$)</label>
-                            <input className="form-control" ref="price" required="" placeholder="$" type="number"/>
+                            <label>Valor (COP$)</label>
+                            <input className="form-control" ref="cost" required="" placeholder="$" type="number"/>
                         </div>
                     </div>
                     <div className="col-md-2">
@@ -108,7 +104,7 @@ class Item extends Component {
             <tr>
                 <td>{this.props.item.ref}</td>
                 <td>{this.props.item.amount}</td>
-                <td>{this.props.item.cost}</td>
+                <td>${this.props.item.cost}</td>
                 <td>
                     <a className="inventory-icon" onClick={this.increaseAmount.bind(this)}>
                         <i className="fa fa-plus inventory-icon"/>
