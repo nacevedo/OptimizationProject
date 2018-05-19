@@ -12,10 +12,10 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    "projects.insert"(ref, cost) {
-      Projects.insert({ref:ref, cost: cost, amount:0});
+    "projects.insert"(name) {
+      Projects.insert({name:name});
     },
     "projects.delete"(id) {
-        Projects.remove({id:id});
+        Projects.remove({_id:id});
     },
 });

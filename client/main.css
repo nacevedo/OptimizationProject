@@ -169,6 +169,15 @@ textarea {
     background-color: #F0F0F0;
     min-height: 80vh;
 }
+.results {
+    margin: 2% 2%;
+    min-width: 96%;
+    background-color: #F0F0F0;
+    min-height: 40vh;
+}
+.text-results {
+    padding-left: 3vh;
+}
 .tooltip {
     position: relative;
     display: inline-block;

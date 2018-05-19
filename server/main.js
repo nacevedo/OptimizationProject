@@ -4,6 +4,7 @@ import {Inject} from "meteor/meteorhacks:inject-initial";
 import "../imports/api/inventory"
 import "../imports/api/parameters"
 import "../imports/api/lastUpdate"
+import "../imports/api/projects"
 
 Meteor.startup(() => {
     // code to run on server at startup

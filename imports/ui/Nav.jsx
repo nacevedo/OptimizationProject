@@ -186,7 +186,8 @@ handleChange(g)
                             <Switch>
                                 <Route exact path="/" 
                                         render = {() => <Content grafica1 = {this.state.grafica1} grafica2 = {this.state.grafica2} grafica3 = {this.state.grafica3} lastTime={this.props.lastTime}/>}/>
-                                <Route exact path="/projects" component={Projects}/>
+                                <Route exact path="/projects"
+                                       render={(props) => <Projects {...props} projects={this.props.projects}/>}/>
                                 <Route exact path="/inventory"
                                        render={(props) => <Inventory {...props} inventory={this.props.inventory}/>}/>
                                 <Route exact path="/budget"

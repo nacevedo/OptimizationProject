@@ -12,7 +12,6 @@ class SimpleBarChart extends Component {
     }
  
     renderGraph(){
-        console.log(this.props.cual)
         if(this.props.cual == 2){
             return(
                 <BarChart width={800} height={300} data={this.props.grafica2}
