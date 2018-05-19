@@ -11,6 +11,52 @@ import Results from "./Results";
 
 class Nav extends Component {
 
+     constructor(props) {
+        super(props);
+
+        this.state = {
+            grafica1:[],
+            grafica2:[],
+            grafica3:[]
+        };
+    }
+
+handleChange(g)
+    {
+        var graficas = g.split("#");
+        var grafica1 = [];
+        var grafica2 = [];
+        var grafica3 = [];
+
+        for (i = 0; i < graficas.length ; i++)
+        {
+        var separados = graficas[i].split(","); 
+        console.log(separados);
+        if (i == 0){
+            grafica1 =separados;
+         }
+         else if (i == 1){
+            grafica2 = separados;
+         }
+         else {
+            grafica3 = separados;
+         }
+        }
+
+        console.log(grafica2);
+        var data = [];
+        for (var i = 0; i < grafica2.length; i+=2)
+        {
+            console.log(grafica2[i]);
+            var j = parseInt(i+1)
+            console.log(grafica2[j]);
+            data.push({name: grafica2[i], cantidad: parseInt(grafica2[j])});
+        }
+        console.log(data);
+        this.setState({
+            grafica2 : data}); 
+    }
+
     render() {
         return (
             <Router>
@@ -101,7 +147,8 @@ class Nav extends Component {
                         </nav>
                         <div className="content">
                             <Switch>
-                                <Route exact path="/" component={Content}/>
+                                <Route exact path="/" 
+                                        render = {() => <Content grafica1 = {this.state.grafica1} grafica2 = {this.state.grafica2} grafica3 = {this.state.grafica3}/ >}/>
                                 <Route exact path="/projects" component={Projects}/>
                                 <Route exact path="/inventory"
                                        render={(props) => <Inventory {...props} inventory={this.props.inventory}/>}/>
@@ -110,7 +157,8 @@ class Nav extends Component {
                                 <Route exact path="/parameters"
                                        render={(props) => <Parameters {...props} parameters={this.props.parameters}
                                                                       inventory={this.props.inventory}/>}/>
-                                <Route exact path="/results" component={Results}/>
+                                <Route exact path="/results" 
+                                        render = {() => <Results handleChange = {this.handleChange.bind(this)} />}/>
                             </Switch>
                         </div>
                         <Footer/>

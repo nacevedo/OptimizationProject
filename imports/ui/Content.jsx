@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import SimpleBarChart from "./SimpleBarChart";
 
 class Content extends Component {
     constructor(props) {
@@ -8,39 +9,10 @@ class Content extends Component {
 
     componentDidMount() {
 
-        var divElement = document.getElementById('viz1526504869880');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '100%';
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
 
     }
 
-     handleChange(e)
-    {
-        var graficas = this.refs.input.value.split("#"); 
-        for (i = 0; i < graficas.length ; i++)
-        {
-        var separados = graficas[i].split(","); 
-        console.log(separados);
-        if (i == 0){
-            this.setState({
-                grafica1:separados
-            }); 
-         }
-         else if (i == 1){
-            this.setState({
-                grafica2:separados
-            }); 
-         }
-         else {
-            this.setState({
-                grafica3:separados
-            }); 
-         }
-        }
-    }
 
 
     render() {
@@ -48,7 +20,6 @@ class Content extends Component {
 
 
             <div className="container-fluid">
-                <input type="text" id="userInput" ref = "input" onChange={ this.handleChange.bind(this) } />
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card ">
@@ -57,24 +28,9 @@ class Content extends Component {
                                 <p className="card-category">La siguiente gráfica muestra la cantidad de herramientas que se deben comprar de cada tipo para lograr la menor demora en proyectos.</p>
                             </div>
                             <div className="card-body ">
-                                <div className='tableauPlaceholder' id='viz1526504869880'>
-                                    <object className='tableauViz'>
-                                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
-                                        <param name='embed_code_version' value='3'/>
-                                        <param name='site_root' value=''/>
-                                        <param name='name' value='Opti&#47;Sheet1'/>
-                                        <param name='tabs' value='no'/>
-                                        <param name='toolbar' value='yes'/>
-                                        <param name='static_image'
-                                               value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Op&#47;Opti&#47;Sheet1&#47;1.png'/>
-                                        <param name='animate_transition' value='yes'/>
-                                        <param name='display_static_image' value='yes'/>
-                                        <param name='display_spinner' value='yes'/>
-                                        <param name='display_overlay' value='yes'/>
-                                        <param name='display_count' value='yes'/>
-                                        <param name='filter' value='publish=yes'/>
-                                    </object>
-                                </div>
+
+                            <SimpleBarChart grafica2 = {this.props.grafica2}/>
+                                
                             </div>
                             <div className="card-footer ">
                                 <div className="stats">

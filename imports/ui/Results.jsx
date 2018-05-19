@@ -21,7 +21,7 @@ class Results extends Component {
 
                     <div className="row">
                         <div className="col-md-12">
-                            <textarea className="parameters" ref="results">
+                            <textarea className="parameters" ref="results" onChange =  {()=> {this.props.handleChange(this.refs.results.value)}}>
                         </textarea>
                         </div>
                     </div>
