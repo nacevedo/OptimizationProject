@@ -14,7 +14,7 @@ class Results extends Component {
                         <div className="col-md-12">
                             <div className="card-header">
                                 <h4 className="card-title">Resultados</h4>
-                                <p className="card-category">Ingrese los resultados del modelo de Xpress</p>
+                                <p className="card-category">Ingrese los resultados del modelo de Xpress!</p>
                             </div>
                         </div>
                     </div>
