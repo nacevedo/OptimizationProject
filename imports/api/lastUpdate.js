@@ -18,10 +18,10 @@ Meteor.methods({
         if(res.length>0){
             let obj = res[0];
             LastUpdate.update(obj._id, {
-                $set: { value: moment().locale('es').format('MMMM Do YYYY, h:mm:ss a')},});
+                $set: { value: moment().format('MMMM Do YYYY, h:mm:ss a')},});
         }
         else {
-            LastUpdate.insert({name:"time",value:moment().locale('es').format('MMMM Do YYYY, h:mm:ss a')})
+            LastUpdate.insert({name:"time",value:moment().format('MMMM Do YYYY, h:mm:ss a')})
         }
     }
 });
