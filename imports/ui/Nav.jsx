@@ -79,9 +79,7 @@ handleChange(g)
         this.setState({
             grafica1 : data1});
 
-<<<<<<< HEAD
         Meteor.call("last.update");
-=======
         var data3 = []; 
 
         for (var i = 0; i < grafica3.length; i+=2)
@@ -94,10 +92,6 @@ handleChange(g)
         console.log(data3);
         this.setState({
             grafica3 : data3});
-
-
-
->>>>>>> f98470b6b3be770e9a8c3851290da5ff96729776
     }
 
     render() {

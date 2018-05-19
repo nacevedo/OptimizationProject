@@ -49,17 +49,19 @@ class Content extends Component {
                             </div>
                             <div className="card-body ">
                                 <div id="chartActivity" className="ct-chart">
-
+                                    <div className="legend">
+                                        <i className="fa fa-circle demor"></i> Demorados
+                                        <i className="fa fa-circle no-demor"></i> Sin demoras
+                                    </div>
+                                    <hr/>
+                                    <div className="stats">
+                                        <PieChart grafica1 = {this.props.grafica1}/>
+                                    </div>
                                 </div>
                             </div>
                             <div className="card-footer ">
-                                <div className="legend">
-                                    <i className="fa fa-circle demor"></i> Demorados
-                                    <i className="fa fa-circle no-demor"></i> Sin demoras
-                                </div>
-                                <hr/>
                                 <div className="stats">
-                                    <PieChart grafica1 = {this.props.grafica1}/>
+                                    <i className="fa fa-history"></i> Updated on {this.props.lastTime[0]?this.props.lastTime[0].value:""}
                                 </div>
                             </div>
                         </div>
@@ -76,9 +78,8 @@ class Content extends Component {
                                 </div>
                             </div>
                             <div className="card-footer ">
-                                <hr/>
                                 <div className="stats">
-                                    <i className="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+                                    <i className="fa fa-history"></i> Updated on {this.props.lastTime[0]?this.props.lastTime[0].value:""}
                                 </div>
                             </div>
                         </div>
