@@ -21,37 +21,37 @@ class Input extends Component {
                                     <div className="row">
                                         <div className="col-md-5 pr-1">
                                             <div className="form-group">
-                                                <label>Company</label>
-                                                <input className="form-control" placeholder="Company"
+                                                <label>Nombre Proyecto</label>
+                                                <input className="form-control"
                                                        type="text"/>
                                             </div>
                                         </div>
                                         <div className="col-md-3 px-1">
                                             <div className="form-group">
-                                                <label>Username</label>
-                                                <input className="form-control" placeholder="Username"
+                                                <label>Cliente</label>
+                                                <input className="form-control"
                                                        type="text"/>
                                             </div>
                                         </div>
                                         <div className="col-md-4 pl-1">
                                             <div className="form-group">
-                                                <label>Email address</label>
-                                                <input className="form-control" placeholder="Email" type="email"/>
+                                                <label>Correo cliente</label>
+                                                <input className="form-control" type="email"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6 pr-1">
                                             <div className="form-group">
-                                                <label>First Name</label>
-                                                <input className="form-control" placeholder="Company"
-                                                       type="text"/>
+                                                <label>Número de contacto</label>
+                                                <input className="form-control"
+                                                       type="number"/>
                                             </div>
                                         </div>
                                         <div className="col-md-6 pl-1">
                                             <div className="form-group">
-                                                <label>Last Name</label>
-                                                <input className="form-control" placeholder="Last Name"
+                                                <label>Dirección</label>
+                                                <input className="form-control"
                                                        type="text"/>
                                             </div>
                                         </div>
@@ -59,9 +59,17 @@ class Input extends Component {
                                     <div className="row">
                                         <div className="col-md-12">
                                             <div className="form-group">
-                                                <label>Address</label>
-                                                <input className="form-control" placeholder="Home Address"
-                                                       type="text"/>
+                                                <select class="mdb-select colorful-select dropdown-primary" multiple searchable="Search here..">
+                                                    <option value="" disabled selected>Choose your country</option>
+                                                    <option value="1">USA</option>
+                                                    <option value="2">Germany</option>
+                                                    <option value="3">France</option>
+                                                    <option value="4">Poland</option>
+                                                    <option value="5">Japan</option>
+                                                </select>
+                                                <label>Label example</label>
+                                                <button class="btn-save btn btn-primary btn-sm">Save</button>
+
                                             </div>
                                         </div>
                                     </div>
