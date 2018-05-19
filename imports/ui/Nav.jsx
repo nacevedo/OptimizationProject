@@ -54,7 +54,32 @@ handleChange(g)
         }
         console.log(data);
         this.setState({
-            grafica2 : data}); 
+            grafica2 : data});
+
+        console.log(grafica1); 
+        var data1 = [];
+
+        var demorados = 0; 
+        var noDemora = 0; 
+
+        for (var i = 0; i < grafica1.length; i+=4)
+        {
+            if (grafica1[i+3] == "1")
+            {
+                demorados++; 
+            }
+            else {
+                noDemora++; 
+            }
+        }
+
+        data1.push({name: "Demorados", value: parseInt(demorados)});
+        data1.push({name: "Sin Demora", value: parseInt(noDemora)});
+
+        this.setState({
+            grafica1 : data1});
+
+
     }
 
     render() {

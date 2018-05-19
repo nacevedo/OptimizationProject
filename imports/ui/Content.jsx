@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import SimpleBarChart from "./SimpleBarChart";
+import PieChart from "./PieChartGraph";
 
 class Content extends Component {
     constructor(props) {
@@ -59,7 +60,7 @@ class Content extends Component {
                                 </div>
                                 <hr/>
                                 <div className="stats">
-                                    <i className="fa fa-check"></i> Data information certified
+                                    <PieChart grafica1 = {this.props.grafica1}/>
                                 </div>
                             </div>
                         </div>
