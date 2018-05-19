@@ -79,7 +79,7 @@ handleChange(g)
         this.setState({
             grafica1 : data1});
 
-
+        Meteor.call("last.update");
     }
 
     render() {
@@ -173,7 +173,7 @@ handleChange(g)
                         <div className="content">
                             <Switch>
                                 <Route exact path="/" 
-                                        render = {() => <Content grafica1 = {this.state.grafica1} grafica2 = {this.state.grafica2} grafica3 = {this.state.grafica3}/>}/>
+                                        render = {() => <Content grafica1 = {this.state.grafica1} grafica2 = {this.state.grafica2} grafica3 = {this.state.grafica3} lastTime={this.props.lastTime}/>}/>
                                 <Route exact path="/projects" component={Projects}/>
                                 <Route exact path="/inventory"
                                        render={(props) => <Inventory {...props} inventory={this.props.inventory}/>}/>

@@ -1,12 +1,31 @@
 import React, {Component} from "react";
 
+import  MultiSelectReact  from 'multi-select-react';
+
 class Input extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            multiSelect: [{label:"Hola", id:"hola"},{label:"chao", id:"chao"}]
+        };
+    }
+
+    optionClicked(optionsList) {
+        this.setState({ multiSelect: optionsList });
+    }
+    selectedBadgeClicked(optionsList) {
+        this.setState({ multiSelect: optionsList });
     }
 
     render() {
+        const selectedOptionsStyles = {
+            color: "#3c763d",
+            backgroundColor: "#dff0d8"
+        };
+        const optionsListStyles = {
+            backgroundColor: "#dff0d8",
+            color: "#3c763d"
+        };
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -59,39 +78,12 @@ class Input extends Component {
                                     <div className="row">
                                         <div className="col-md-12">
                                             <div className="form-group">
-                                                <select class="mdb-select colorful-select dropdown-primary" multiple searchable="Search here..">
-                                                    <option value="" disabled selected>Choose your country</option>
-                                                    <option value="1">USA</option>
-                                                    <option value="2">Germany</option>
-                                                    <option value="3">France</option>
-                                                    <option value="4">Poland</option>
-                                                    <option value="5">Japan</option>
-                                                </select>
-                                                <label>Label example</label>
-                                                <button class="btn-save btn btn-primary btn-sm">Save</button>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-4 pr-1">
-                                            <div className="form-group">
-                                                <label>City</label>
-                                                <input className="form-control" placeholder="City"
-                                                       type="text"/>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 px-1">
-                                            <div className="form-group">
-                                                <label>Country</label>
-                                                <input className="form-control" placeholder="Country"
-                                                       type="text"/>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 pl-1">
-                                            <div className="form-group">
-                                                <label>Postal Code</label>
-                                                <input className="form-control" placeholder="ZIP Code" type="number"/>
+                                                <MultiSelectReact
+                                                    options={this.state.multiSelect}
+                                                    optionClicked={this.optionClicked.bind(this)}
+                                                    selectedBadgeClicked={this.selectedBadgeClicked.bind(this)}
+                                                    selectedOptionsStyles={selectedOptionsStyles}
+                                                    optionsListStyles={optionsListStyles} />
                                             </div>
                                         </div>
                                     </div>

@@ -532,7 +532,9 @@ body>.navbar-collapse .logo p {
     line-height: 20px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+.gray-text {
+    color: #5e5e5e;
+}
 .sidebar .logo .simple-text,
 body>.navbar-collapse .logo .simple-text {
     text-transform: uppercase;

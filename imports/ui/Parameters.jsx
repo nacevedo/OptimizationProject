@@ -19,7 +19,7 @@ class Parameters extends Component {
         });
         params = params + this.processInventory();
         return (
-            <textarea className="parameters" readOnly id="parameters" ref="params" value={params}>
+            <textarea className="parameters gray-text" readOnly id="parameters" ref="params" value={params}>
                         </textarea>
         )
     }
