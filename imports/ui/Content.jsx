@@ -19,7 +19,6 @@ class Content extends Component {
     render() {
         return (
 
-
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
@@ -30,12 +29,12 @@ class Content extends Component {
                             </div>
                             <div className="card-body ">
 
-                            <SimpleBarChart grafica2 = {this.props.grafica2}/>
+                            <SimpleBarChart grafica2 = {this.props.grafica2} cual = {2}/>
                                 
                             </div>
                             <div className="card-footer ">
                                 <div className="stats">
-                                    <i className="fa fa-history"></i> Updated 3 minutes ago
+                                    <i className="fa fa-history"></i> Updated  minutes ago
                                 </div>
                             </div>
                         </div>
@@ -45,8 +44,8 @@ class Content extends Component {
                     <div className="col-md-6">
                         <div className="card ">
                             <div className="card-header ">
-                                <h4 className="card-title">2017 Sales</h4>
-                                <p className="card-category">All products including Taxes</p>
+                                <h4 className="card-title">Proyectos con demoras</h4>
+                                <p className="card-category">La siguiente gráfica muestra el porcentaje de proyectos con demoras y sin demoras.</p>
                             </div>
                             <div className="card-body ">
                                 <div id="chartActivity" className="ct-chart">
@@ -55,8 +54,8 @@ class Content extends Component {
                             </div>
                             <div className="card-footer ">
                                 <div className="legend">
-                                    <i className="fa fa-circle text-info"></i> Tesla Model S
-                                    <i className="fa fa-circle text-danger"></i> BMW 5 Series
+                                    <i className="fa fa-circle demor"></i> Demorados
+                                    <i className="fa fa-circle no-demor"></i> Sin demoras
                                 </div>
                                 <hr/>
                                 <div className="stats">
@@ -68,161 +67,12 @@ class Content extends Component {
                     <div className="col-md-6">
                         <div className="card  card-tasks">
                             <div className="card-header ">
-                                <h4 className="card-title">Tasks</h4>
-                                <p className="card-category">Backend development</p>
+                                <h4 className="card-title">Inventario total por día</h4>
+                                <p className="card-category">La siguiente gráfica muestra el inventario total de herramientas por día</p>
                             </div>
                             <div className="card-body ">
                                 <div className="table-full-width">
-                                    <table className="table">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <label className="form-check-label">
-                                                        <input className="form-check-input" value=""
-                                                               type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                            <td className="td-actions text-right">
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-info btn-simple btn-link"
-                                                        data-original-title="Edit Task">
-                                                    <i className="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-danger btn-simple btn-link"
-                                                        data-original-title="Remove">
-                                                    <i className="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <label className="form-check-label">
-                                                        <input className="form-check-input" value="" checked=""
-                                                               type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                                            <td className="td-actions text-right">
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-info btn-simple btn-link"
-                                                        data-original-title="Edit Task">
-                                                    <i className="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-danger btn-simple btn-link"
-                                                        data-original-title="Remove">
-                                                    <i className="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <label className="form-check-label">
-                                                        <input className="form-check-input" value="" checked=""
-                                                               type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Flooded: One year later, assessing what was lost and what was found
-                                                when a ravaging rain swept through metro Detroit
-                                            </td>
-                                            <td className="td-actions text-right">
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-info btn-simple btn-link"
-                                                        data-original-title="Edit Task">
-                                                    <i className="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-danger btn-simple btn-link"
-                                                        data-original-title="Remove">
-                                                    <i className="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <label className="form-check-label">
-                                                        <input className="form-check-input" checked=""
-                                                               type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Create 4 Invisible User Experiences you Never Knew About</td>
-                                            <td className="td-actions text-right">
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-info btn-simple btn-link"
-                                                        data-original-title="Edit Task">
-                                                    <i className="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-danger btn-simple btn-link"
-                                                        data-original-title="Remove">
-                                                    <i className="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <label className="form-check-label">
-                                                        <input className="form-check-input" value=""
-                                                               type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Read "Following makes Medium better"</td>
-                                            <td className="td-actions text-right">
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-info btn-simple btn-link"
-                                                        data-original-title="Edit Task">
-                                                    <i className="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-danger btn-simple btn-link"
-                                                        data-original-title="Remove">
-                                                    <i className="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="form-check">
-                                                    <label className="form-check-label">
-                                                        <input className="form-check-input" value="" disabled=""
-                                                               type="checkbox"/>
-                                                        <span className="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>Unfollow 5 enemies from twitter</td>
-                                            <td className="td-actions text-right">
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-info btn-simple btn-link"
-                                                        data-original-title="Edit Task">
-                                                    <i className="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title=""
-                                                        className="btn btn-danger btn-simple btn-link"
-                                                        data-original-title="Remove">
-                                                    <i className="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                    <SimpleBarChart grafica2 = {this.props.grafica3} cual = {3}/>
                                 </div>
                             </div>
                             <div className="card-footer ">
