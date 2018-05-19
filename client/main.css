@@ -14,6 +14,14 @@
 
 /*           Font Smoothing      */
 
+.demor{
+    color: #0088FE;
+}
+
+.no-demor{
+    color: #00C49F;
+}
+
 body,
 textarea,
 h1,
