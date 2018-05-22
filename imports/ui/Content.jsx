@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Parser from 'html-react-parser';
+
 import SimpleBarChart from "./SimpleBarChart";
 import PieChart from "./PieChartGraph";
 
@@ -10,15 +12,47 @@ class Content extends Component {
 
     componentDidMount() {
 
-
-
     }
 
+    renderTable() {
+        if (!this.props.projectData) return;
+        return (
+            <div className="card-body table-full-width table-responsive">
+                <table className="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>Proyectos</th>
+                        <th>Día inicio</th>
+                        <th>Día fin</th>
+                        <th>Demora</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {Parser(this.renderProjectData())}
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
 
+    renderProjectData() {
+        let ret = "";
+        for (i=0; i<this.props.projectData.length/4; i++ ){
+            let proy = "", ini="", fin="", dem="";
+            for (j=i*4; j<i*4+4; j++){
+                if (proy==="") proy=this.props.projectData[j];
+                else if (ini==="") ini=this.props.projectData[j];
+                else if (fin==="") fin=this.props.projectData[j];
+                else dem = this.props.projectData[j];
+            }
+            ret+=`<tr><td>${proy}</td><td>${ini}</td><td>${fin}</td><td>${dem}</td></tr>`;
+        }
+        return ret;
+    }
 
     render() {
+        console.log(this.props);
         return (
-
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
@@ -77,6 +111,22 @@ class Content extends Component {
                                     <SimpleBarChart grafica2 = {this.props.grafica3} cual = {3}/>
                                 </div>
                             </div>
+                            <div className="card-footer ">
+                                <div className="stats">
+                                    <i className="fa fa-history"></i> Updated on {this.props.lastTime[0]?this.props.lastTime[0].value:""}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card ">
+                            <div className="card-header ">
+                                <h4 className="card-title">Proyectos</h4>
+                                <p className="card-category">La siguiente tabla incluye la información de los proyectos.</p>
+                            </div>
+                            {this.renderTable()}
                             <div className="card-footer ">
                                 <div className="stats">
                                     <i className="fa fa-history"></i> Updated on {this.props.lastTime[0]?this.props.lastTime[0].value:""}

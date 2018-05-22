@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.47",
+    "html-react-parser": "^0.4.6",
     "mdbootstrap": "^4.5.2",
     "meteor-node-stubs": "^0.3.2",
     "multi-select-react": "^0.1.8",

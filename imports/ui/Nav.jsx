@@ -11,65 +11,58 @@ import Results from "./Results";
 
 class Nav extends Component {
 
-     constructor(props) {
+    constructor(props) {
         super(props);
 
         this.state = {
-            grafica1:[],
-            grafica2:[],
-            grafica3:[]
+            grafica1: [],
+            grafica2: [],
+            grafica3: [],
+            projectData: []
         };
     }
 
-handleChange(g)
-    {
+    handleChange(g) {
         var graficas = g.split("#");
         var grafica1 = [];
         var grafica2 = [];
         var grafica3 = [];
 
-        for (i = 0; i < graficas.length ; i++)
-        {
-        var separados = graficas[i].split(","); 
-        console.log(separados);
-        if (i == 0){
-            grafica1 =separados;
-         }
-         else if (i == 1){
-            grafica2 = separados;
-         }
-         else {
-            grafica3 = separados;
-         }
-        }
-
-        console.log(grafica2);
-        var data = [];
-        for (var i = 0; i < grafica2.length; i+=2)
-        {
-            console.log(grafica2[i]);
-            var j = parseInt(i+1)
-            console.log(grafica2[j]);
-            data.push({name: grafica2[i], cantidad: parseInt(grafica2[j])});
-        }
-        console.log(data);
-        this.setState({
-            grafica2 : data});
-
-        console.log(grafica1); 
-        var data1 = [];
-
-        var demorados = 0; 
-        var noDemora = 0; 
-
-        for (var i = 0; i < grafica1.length; i+=4)
-        {
-            if (grafica1[i+3] == "1")
-            {
-                demorados++; 
+        for (i = 0; i < graficas.length; i++) {
+            var separados = graficas[i].split(",");
+            if (i == 0) {
+                grafica1 = separados;
+            }
+            else if (i == 1) {
+                grafica2 = separados;
             }
             else {
-                noDemora++; 
+                grafica3 = separados;
+            }
+        }
+
+        this.setState({projectData: grafica1});
+
+        var data = [];
+        for (var i = 0; i < grafica2.length; i += 2) {
+            var j = parseInt(i + 1)
+            data.push({name: grafica2[i], cantidad: parseInt(grafica2[j])});
+        }
+        this.setState({
+            grafica2: data
+        });
+
+        var data1 = [];
+
+        var demorados = 0;
+        var noDemora = 0;
+
+        for (var i = 0; i < grafica1.length; i += 4) {
+            if (grafica1[i + 3] == "1") {
+                demorados++;
+            }
+            else {
+                noDemora++;
             }
         }
 
@@ -77,21 +70,18 @@ handleChange(g)
         data1.push({name: "Sin Demora", value: parseInt(noDemora)});
 
         this.setState({
-            grafica1 : data1});
-
+            grafica1: data1
+        });
         Meteor.call("last.update");
-        var data3 = []; 
+        var data3 = [];
 
-        for (var i = 0; i < grafica3.length; i+=2)
-        {
-            console.log(grafica3[i]);
-            var j = parseInt(i+1)
-            console.log(grafica3[j]);
+        for (var i = 0; i < grafica3.length; i += 2) {
+            var j = parseInt(i + 1)
             data3.push({name: grafica3[i], cantidad: parseInt(grafica3[j])});
         }
-        console.log(data3);
         this.setState({
-            grafica3 : data3});
+            grafica3: data3
+        });
     }
 
     render() {
@@ -156,36 +146,17 @@ handleChange(g)
                                     <span className="navbar-toggler-bar burger-lines"></span>
                                     <span className="navbar-toggler-bar burger-lines"></span>
                                 </button>
-                                <div className="collapse navbar-collapse justify-content-end" id="navigation">
-                                    <ul className="navbar-nav ml-auto">
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="http://example.com"
-                                               id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                <span className="no-icon">Dropdown</span>
-                                            </a>
-                                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a className="dropdown-item" href="#">Action</a>
-                                                <a className="dropdown-item" href="#">Another action</a>
-                                                <a className="dropdown-item" href="#">Something</a>
-                                                <a className="dropdown-item" href="#">Something else here</a>
-                                                <div className="divider"></div>
-                                                <a className="dropdown-item" href="#">Separated link</a>
-                                            </div>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#">
-                                                <span className="no-icon">About</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </div>
                         </nav>
                         <div className="content">
                             <Switch>
-                                <Route exact path="/" 
-                                        render = {() => <Content grafica1 = {this.state.grafica1} grafica2 = {this.state.grafica2} grafica3 = {this.state.grafica3} lastTime={this.props.lastTime}/>}/>
+                                <Route exact path="/"
+                                       render={() => <Content grafica1={this.state.grafica1}
+                                                              grafica2={this.state.grafica2}
+                                                              grafica3={this.state.grafica3}
+                                                              lastTime={this.props.lastTime}
+                                                              projectData={this.state.projectData}/>}/>
                                 <Route exact path="/projects"
                                        render={(props) => <Projects {...props} projects={this.props.projects}/>}/>
                                 <Route exact path="/inventory"
@@ -195,8 +166,8 @@ handleChange(g)
                                 <Route exact path="/parameters"
                                        render={(props) => <Parameters {...props} parameters={this.props.parameters}
                                                                       inventory={this.props.inventory}/>}/>
-                                <Route exact path="/results" 
-                                        render = {() => <Results handleChange = {this.handleChange.bind(this)} />}/>
+                                <Route exact path="/results"
+                                       render={() => <Results handleChange={this.handleChange.bind(this)}/>}/>
                             </Switch>
                         </div>
                         <Footer/>

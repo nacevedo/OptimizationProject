@@ -65,8 +65,23 @@ class Input extends Component {
         event.preventDefault();
 
         const name = this.refs.name.value;
+        const client = this.refs.client.value;
+        const mail = this.refs.mail.value;
+        const phone = this.refs.phone.value;
+        const address = this.refs.address.value;
+        let inst = this.state.multiSelect.filter((inst)=>{return inst.value===true});
+        inst = inst.map((i)=>{
+            delete i.id;
+            delete i.value;
+            return i;
+        });
+        Meteor.call("projects.insert", name, client, mail, phone, address, inst);
 
-        Meteor.call("projects.insert", name);
+        this.refs.name.value="";
+        this.refs.client.value="";
+        this.refs.mail.value="";
+        this.refs.phone.value="";
+        this.refs.address.value="";
     }
 
     render() {
@@ -93,21 +108,21 @@ class Input extends Component {
                                         <div className="col-md-5 pr-1">
                                             <div className="form-group">
                                                 <label>Nombre Proyecto</label>
-                                                <input ref="name" className="form-control"
+                                                <input required ref="name" className="form-control"
                                                        type="text"/>
                                             </div>
                                         </div>
                                         <div className="col-md-3 px-1">
                                             <div className="form-group">
                                                 <label>Cliente</label>
-                                                <input className="form-control"
+                                                <input required ref="client" className="form-control"
                                                        type="text"/>
                                             </div>
                                         </div>
                                         <div className="col-md-4 pl-1">
                                             <div className="form-group">
                                                 <label>Correo cliente</label>
-                                                <input className="form-control" type="email"/>
+                                                <input required ref="mail" className="form-control" type="email"/>
                                             </div>
                                         </div>
                                     </div>
@@ -115,14 +130,14 @@ class Input extends Component {
                                         <div className="col-md-6 pr-1">
                                             <div className="form-group">
                                                 <label>Número de contacto</label>
-                                                <input className="form-control"
+                                                <input required ref="phone" className="form-control"
                                                        type="number"/>
                                             </div>
                                         </div>
                                         <div className="col-md-6 pl-1">
                                             <div className="form-group">
                                                 <label>Dirección</label>
-                                                <input className="form-control"
+                                                <input required ref="address" className="form-control"
                                                        type="text"/>
                                             </div>
                                         </div>
@@ -158,8 +173,10 @@ class Input extends Component {
                                 <table className="table table-hover table-striped">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Nombre Proyecto</th>
+                                        <th>Nombre Cliente</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
                                         <th>Eliminar</th>
 
                                     </tr>
@@ -189,8 +206,10 @@ class Project extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.project._id}</td>
                 <td>{this.props.project.name}</td>
+                <td>{this.props.project.client}</td>
+                <td>{this.props.project.address}</td>
+                <td>{this.props.project.phone}</td>
                 <td>
                     <a className="inventory-icon" onClick={this.delete.bind(this)}>
                         <i className="fa fa-trash inventory-icon"/>
