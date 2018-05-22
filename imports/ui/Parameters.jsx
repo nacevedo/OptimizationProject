@@ -64,9 +64,7 @@ class Parameters extends Component {
             "3 - Detección y Extinción de Incendios"];
         let projects = "t: [ ";
         this.props.projects.forEach((proj)=>{
-            console.log(proj.installations);
             installations.forEach((inst)=>{
-                console.log(inst);
                 if (proj.installations.includes(inst)){
                     projects += "(" + inst + " " + proj.name +")1 ";
                 }

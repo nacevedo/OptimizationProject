@@ -51,7 +51,6 @@ class Content extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -80,6 +79,8 @@ class Content extends Component {
                             <div className="card-header ">
                                 <h4 className="card-title">Proyectos con demoras</h4>
                                 <p className="card-category">La siguiente gráfica muestra el porcentaje de proyectos con demoras y sin demoras.</p>
+                                <p className="card-category">Proyectos con demora: {this.props.grafica1[0]?this.props.grafica1[0].value:""}</p>
+                                <p className="card-category">Proyectos sin demora: {this.props.grafica1[1]?this.props.grafica1[0].value:""}</p>
                             </div>
                             <div className="card-body ">
                                 <div id="chartActivity" className="ct-chart">
