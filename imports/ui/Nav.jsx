@@ -165,7 +165,7 @@ class Nav extends Component {
                                        render={(props) => <Budget {...props} budget={this.props.budget}/>}/>
                                 <Route exact path="/parameters"
                                        render={(props) => <Parameters {...props} parameters={this.props.parameters}
-                                                                      inventory={this.props.inventory}/>}/>
+                                                                      inventory={this.props.inventory} projects={this.props.projects}/>}/>
                                 <Route exact path="/results"
                                        render={() => <Results handleChange={this.handleChange.bind(this)}/>}/>
                             </Switch>

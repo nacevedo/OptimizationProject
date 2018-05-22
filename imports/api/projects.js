@@ -13,7 +13,7 @@ if (Meteor.isServer) {
 
 Meteor.methods({
     "projects.insert"(name, client, mail, phone, address, inst) {
-      Projects.insert({name:name, client:client, mail:mail, phone:phone, address:address, intallations:inst});
+      Projects.insert({name:name, client:client, mail:mail, phone:phone, address:address, installations:inst});
     },
     "projects.delete"(id) {
         Projects.remove({_id:id});

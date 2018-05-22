@@ -7,42 +7,44 @@ class Input extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            multiSelect: [{label:"1 - Aire Acondicionado Y Ventilación", id:"1"},
-                {label:"1 - Aire Acondicionado: Minisplit", id:"2"},
-                {label:"1 - Aire Acondicionado: Sistema 1 a 1", id:"3"},
-                {label:"1 - Aire Acondicionado: Fan Coil Desnudo", id:"4"},
-                {label:"1 - Aire Acondicionado: Sistema Paquete", id:"5"},
-                {label:"1 - Aire Acondicionado: Sistema De Refrigeración Variable", id:"6"},
-                {label:"1 - Sistema de Precisión", id:"7"},
-                {label:"1 - Chillers", id:"8"},
-                {label:"1 - Ventilación Mecánica", id:"9"},
-                {label:"1 - Seguridad Electrónica CCTV", id:"10"},
-                {label:"1 - Seguridad Electrónica Control de Acceso", id:"11"},
+            multiSelect: [
+                {label:"1 - Aire Acondicionado Y Ventilación ", id:"1"},
+                {label:"1 - Aire Acondicionado: Minisplit ", id:"2"},
+                {label:"1 - Aire Acondicionado: Sistema 1 a 1 ", id:"3"},
+                {label:"1 - Aire Acondicionado: Fan Coil Desnudo ", id:"4"},
+                {label:"1 - Aire Acondicionado: Sistema Paquete ", id:"5"},
+                {label:"1 - Aire Acondicionado: Sistema De Refrigeración Variable ", id:"6"},
+                {label:"1 - Sistema de Precisión ", id:"7"},
+                {label:"1 - Chillers ", id:"8"},
+                {label:"1 - Ventilación Mecánica ", id:"9"},
+                {label:"1 - Seguridad Electrónica CCTV ", id:"10"},
+                {label:"1 - Seguridad Electrónica Control de Acceso ", id:"11"},
                 {label:"1 - Detección y Extinción de Incendios", id:"12"},
-                {label:"2 - Aire Acondicionado Y Ventilación", id:"13"},
-                {label:"2 - Aire Acondicionado: Minisplit", id:"14"},
-                {label:"2 - Aire Acondicionado: Sistema 1 a 1", id:"15"},
-                {label:"2 - Aire Acondicionado: Fan Coil Desnudo", id:"16"},
-                {label:"2 - Aire Acondicionado: Sistema Paquete", id:"17"},
-                {label:"2 - Aire Acondicionado: Sistema De Refrigeración Variable", id:"18"},
-                {label:"2 - Sistema de Precisión", id:"19"},
-                {label:"2 - Chillers", id:"20"},
-                {label:"2 - Ventilación Mecánica", id:"21"},
-                {label:"2 - Seguridad Electrónica CCTV", id:"22"},
-                {label:"2 - Seguridad Electrónica Control de Acceso", id:"23"},
+                {label:"2 - Aire Acondicionado Y Ventilación ", id:"13"},
+                {label:"2 - Aire Acondicionado: Minisplit ", id:"14"},
+                {label:"2 - Aire Acondicionado: Sistema 1 a 1 ", id:"15"},
+                {label:"2 - Aire Acondicionado: Fan Coil Desnudo ", id:"16"},
+                {label:"2 - Aire Acondicionado: Sistema Paquete ", id:"17"},
+                {label:"2 - Aire Acondicionado: Sistema De Refrigeración Variable ", id:"18"},
+                {label:"2 - Sistema de Precisión ", id:"19"},
+                {label:"2 - Chillers ", id:"20"},
+                {label:"2 - Ventilación Mecánica ", id:"21"},
+                {label:"2 - Seguridad Electrónica CCTV ", id:"22"},
+                {label:"2 - Seguridad Electrónica Control de Acceso ", id:"23"},
                 {label:"2 - Detección y Extinción de Incendios", id:"24"},
-                {label:"3 - Aire Acondicionado Y Ventilación", id:"25"},
-                {label:"3 - Aire Acondicionado: Minisplit", id:"26"},
-                {label:"3 - Aire Acondicionado: Sistema 1 a 1", id:"27"},
-                {label:"3 - Aire Acondicionado: Fan Coil Desnudo", id:"28"},
-                {label:"3 - Aire Acondicionado: Sistema Paquete", id:"29"},
-                {label:"3 - Aire Acondicionado: Sistema De Refrigeración Variable", id:"30"},
-                {label:"3 - Sistema de Precisión", id:"31"},
-                {label:"3 - Chillers", id:"32"},
-                {label:"3 - Ventilación Mecánica", id:"33"},
-                {label:"3 - Seguridad Electrónica CCTV", id:"34"},
-                {label:"3 - Seguridad Electrónica Control de Acceso", id:"35"},
-                {label:"3 - Detección y Extinción de Incendios", id:"36"}]
+                {label:"3 - Aire Acondicionado Y Ventilación ", id:"25"},
+                {label:"3 - Aire Acondicionado: Minisplit ", id:"26"},
+                {label:"3 - Aire Acondicionado: Sistema 1 a 1 ", id:"27"},
+                {label:"3 - Aire Acondicionado: Fan Coil Desnudo ", id:"28"},
+                {label:"3 - Aire Acondicionado: Sistema Paquete ", id:"29"},
+                {label:"3 - Aire Acondicionado: Sistema De Refrigeración Variable ", id:"30"},
+                {label:"3 - Sistema de Precisión ", id:"31"},
+                {label:"3 - Chillers ", id:"32"},
+                {label:"3 - Ventilación Mecánica ", id:"33"},
+                {label:"3 - Seguridad Electrónica CCTV ", id:"34"},
+                {label:"3 - Seguridad Electrónica Control de Acceso ", id:"35"},
+                {label:"3 - Detección y Extinción de Incendios", id:"36"}
+            ]
         };
     }
 
@@ -70,12 +72,11 @@ class Input extends Component {
         const phone = this.refs.phone.value;
         const address = this.refs.address.value;
         let inst = this.state.multiSelect.filter((inst)=>{return inst.value===true});
-        inst = inst.map((i)=>{
-            delete i.id;
-            delete i.value;
-            return i;
+        let values = [];
+        inst.forEach((ins)=>{
+            values.push(ins.label);
         });
-        Meteor.call("projects.insert", name, client, mail, phone, address, inst);
+        Meteor.call("projects.insert", name, client, mail, phone, address, values);
 
         this.refs.name.value="";
         this.refs.client.value="";
